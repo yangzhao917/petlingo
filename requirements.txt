@@ -1,0 +1,18 @@
+# OpenVINO 相关
+openvino>=2025.2.0
+openvino-genai>=2025.3.0
+optimum-intel[npu]>=1.18.0
+
+# 模型和推理
+transformers>=4.40.0
+torch>=2.0.0
+accelerate>=0.20.0
+
+# 模型下载
+huggingface-hub>=0.20.0
+modelscope>=1.11.0
+
+# 工具库
+numpy>=1.24.0
+tqdm>=4.65.0
+requests>=2.31.0

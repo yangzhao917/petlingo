@@ -58,12 +58,13 @@ ollama-intel/
 ollama-intel-2.3.0b20250923-win/
 openvino.genai/
 
-# 测试文件
-*.wav
-*.jpg
-*.png
-*.json
+# 测试文件（排除大文件）
 vision_out.json
+
+# 允许小的示例文件
+!sample.png
+!cat_test.wav
+!330px-Kot_z_myszą.jpg
 
 # 临时文件
 human/

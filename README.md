@@ -17,42 +17,91 @@
 
 ## 🚀 快速开始
 
-### 方案 1: Intel Ollama（推荐新手）
+### 前置要求
+
+- **操作系统**: Windows 10/11
+- **Python**: 3.8 或更高版本
+- **硬件**: Intel Arc GPU 或 Intel Core Ultra 处理器（带 NPU）
+- **磁盘空间**: 至少 20GB 可用空间
+- **驱动**: 最新的 Intel GPU/NPU 驱动
+
+### 步骤 1: 克隆项目
 
 ```cmd
-# 一键部署
+git clone https://github.com/yangzhao917/petlingo.git
+cd petlingo
+```
+
+### 步骤 2: 安装依赖
+
+```cmd
+# 安装 Python 依赖
+pip install -r requirements.txt
+```
+
+### 步骤 3: 选择部署方案
+
+#### 方案 A: Intel Ollama（推荐新手，最简单）
+
+```cmd
+# 一键部署（会自动下载模型）
 setup_qwen3_auto.bat
 
 # 运行模型
 run_qwen3.bat
 ```
 
-### 方案 2: OpenVINO NPU（推荐高级用户）
+**特点**: 
+- ✅ 无需手动下载模型
+- ✅ 自动配置优化参数
+- ✅ 5分钟内完成部署
+
+#### 方案 B: OpenVINO NPU（推荐高级用户，最高性能）
 
 ```cmd
-# 自动部署
+# 自动部署（会自动下载模型）
 python deploy_qwen3_npu.py
 ```
 
-### 方案 3: 手动部署
+**特点**:
+- ✅ 自动下载和配置模型
+- ✅ 充分利用 Intel NPU
+- ✅ 最快的推理速度
+
+#### 方案 C: 手动部署（完全控制）
 
 ```cmd
-# 安装依赖
+# 1. 安装依赖
 pip install optimum-intel openvino-genai transformers torch
 
-# 导出模型
+# 2. 导出模型（会自动从 HuggingFace 下载）
 optimum-cli export openvino --model Qwen/Qwen3-8B \
     --task text-generation-with-past \
     --weight-format int4 \
+    --group-size 128 \
     Qwen3-8B-int4-ov
 
-# 运行推理
+# 3. 运行推理
 python run_qwen3_openvino.py
 ```
 
+### 步骤 4: 验证安装
+
+```cmd
+# 快速测试
+python quick_test_npu.py
+```
+
+如果看到模型成功生成文本，说明部署成功！
+
 ## 📖 完整文档
 
-详细的项目介绍和使用指南请查看：[.kiro/项目介绍.md](.kiro/项目介绍.md)
+- **[完整安装配置指南](SETUP.md)** - 详细的环境配置和故障排除
+- **[模型下载指南](MODELS.md)** - 如何获取和管理模型文件
+- **[项目详细介绍](.kiro/项目介绍.md)** - 完整的功能说明和使用示例
+- **[Intel Ollama 使用指南](Intel_Ollama_使用指南.md)** - Ollama 详细配置
+- **[Qwen3 部署方案](README_Qwen3_部署方案.md)** - 多种部署方案对比
+- **[OpenVINO NPU 部署](README_Qwen3_NPU.md)** - NPU 专用部署指南
 
 ## 🖥️ 硬件要求
 
@@ -77,12 +126,36 @@ python run_qwen3_openvino.py
 | Qwen3-8B | INT4 | GPU | ~35 tokens/s | ~5GB |
 | Qwen3-4B | INT4 | NPU | ~60 tokens/s | ~3GB |
 
-## 📚 文档目录
+## ❓ 常见问题
 
-- [Intel Ollama 使用指南](Intel_Ollama_使用指南.md)
-- [Qwen3 部署方案](README_Qwen3_部署方案.md)
-- [OpenVINO NPU 部署](README_Qwen3_NPU.md)
-- [OpenVINO 部署说明](OpenVINO_部署说明.md)
+### 模型文件在哪里？
+
+模型文件因为太大（几GB到几十GB）没有包含在仓库中。运行部署脚本时会自动下载。详见 [MODELS.md](MODELS.md)。
+
+### 如何选择部署方案？
+
+- **新手/快速体验**: 使用 Intel Ollama（方案 A）
+- **追求性能**: 使用 OpenVINO NPU（方案 B）
+- **完全控制**: 手动部署（方案 C）
+
+### NPU 不工作怎么办？
+
+1. 检查设备管理器中是否有"神经处理器"
+2. 更新 Intel NPU 驱动
+3. 临时使用 GPU 或 CPU 设备
+
+详细故障排除请查看 [SETUP.md](SETUP.md)。
+
+### 显存不足怎么办？
+
+```cmd
+# 对于 Ollama
+set OLLAMA_NUM_PARALLEL=1
+set OLLAMA_NUM_CTX=4096
+
+# 对于 OpenVINO，使用更小的模型
+python test_qwen3_4b_npu.py
+```
 
 ## 🔧 常见问题
 
