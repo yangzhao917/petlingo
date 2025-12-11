@@ -1,0 +1,71 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 大型模型文件和压缩包
+*.zip
+*.rar
+*.7z
+*.tar.gz
+*.bin
+*.gguf
+*.safetensors
+
+# 模型目录（太大，不上传）
+qwen3-8b-int4-cw-ov/
+Qwen3-8B-original/
+qwen3_original/
+ov_qwen3vl8b/
+ov_phi35/
+ov_paraformer/
+FunASR-main/
+GPT-SoVITS-For-Intel/
+ollama-intel/
+ollama-intel-2.3.0b20250923-win/
+openvino.genai/
+
+# 测试文件
+*.wav
+*.jpg
+*.png
+*.json
+vision_out.json
+
+# 临时文件
+human/
+new/
+*.tmp
