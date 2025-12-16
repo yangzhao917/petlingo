@@ -1,0 +1,28 @@
+{
+  "compression": null,
+  "dtype": "int4",
+  "input_info": null,
+  "optimum_version": "1.24.0.dev0",
+  "quantization_config": {
+    "all_layers": null,
+    "backup_precision": null,
+    "bits": 4,
+    "dataset": "contextual",
+    "gptq": null,
+    "group_size": 128,
+    "ignored_scope": null,
+    "lora_correction": null,
+    "num_samples": 32,
+    "processor": null,
+    "quant_method": "awq",
+    "ratio": 1.0,
+    "scale_estimation": null,
+    "sensitivity_metric": null,
+    "sym": false,
+    "tokenizer": null,
+    "trust_remote_code": true,
+    "weight_format": "int4"
+  },
+  "save_onnx_model": false,
+  "transformers_version": "4.47.0"
+}
