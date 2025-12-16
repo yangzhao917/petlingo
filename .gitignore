@@ -48,19 +48,30 @@ Thumbs.db
 # 模型目录 - 使用 Git LFS 上传
 # 注意：这些目录包含大文件，将通过 Git LFS 管理
 
-# 临时排除一些非常大的目录（如果需要可以逐步添加）
-# FunASR-main/
-# GPT-SoVITS-For-Intel/
+# 排除模型权重文件（太大）
+qwen3-8b-int4-cw-ov/
+Qwen3-8B-original/
+qwen3_original/
+ov_qwen3vl8b/
+ov_phi35/
+ov_paraformer/
 
-# 测试文件（排除大文件）
+# GPT-SoVITS 中的模型权重（保留代码）
+GPT-SoVITS-For-Intel/pretrained_models/
+GPT-SoVITS-For-Intel/GPT_weights/
+GPT-SoVITS-For-Intel/SoVITS_weights/
+GPT-SoVITS-For-Intel/logs/
+GPT-SoVITS-For-Intel/output/
+GPT-SoVITS-For-Intel/**/*.pth
+GPT-SoVITS-For-Intel/**/*.ckpt
+
+# 测试文件
 vision_out.json
 
-# 允许小的示例文件
+# 允许示例文件
 !sample.png
 !cat_test.wav
 !330px-Kot_z_myszą.jpg
 
 # 临时文件
-human/
-new/
 *.tmp

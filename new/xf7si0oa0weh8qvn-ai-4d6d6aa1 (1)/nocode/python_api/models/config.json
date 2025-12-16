@@ -1,0 +1,61 @@
+{
+  "emotion_mapping": {
+    "cat": {
+      "兴奋捕猎": "excited_hunting",
+      "友好呼唤": "friendly_call",
+      "吵架": "fighting",
+      "好吃": "enjoying_food",
+      "委屈": "grieved",
+      "想玩耍": "want_to_play",
+      "打招呼": "greeting",
+      "打架预备": "fight_ready",
+      "撒娇": "acting_cute",
+      "无聊": "bored",
+      "求偶": "mating_call",
+      "求救": "help_call",
+      "满足": "satisfied",
+      "着急": "anxious",
+      "舒服": "comfortable",
+      "警告": "warning",
+      "走开": "go_away",
+      "饿了": "hungry"
+    },
+    "dog": {
+      "吵架": "fighting",
+      "哀求": "begging",
+      "撒娇": "acting_cute",
+      "求偶": "mating_call",
+      "着急": "anxious",
+      "警告": "warning",
+      "饿了": "hungry"
+    }
+  },
+  "classes": [
+    "cat_acting_cute",
+    "cat_anxious",
+    "cat_bored",
+    "cat_comfortable",
+    "cat_enjoying_food",
+    "cat_excited_hunting",
+    "cat_fight_ready",
+    "cat_fighting",
+    "cat_friendly_call",
+    "cat_go_away",
+    "cat_greeting",
+    "cat_grieved",
+    "cat_help_call",
+    "cat_hungry",
+    "cat_mating_call",
+    "cat_satisfied",
+    "cat_want_to_play",
+    "cat_warning",
+    "dog_acting_cute",
+    "dog_anxious",
+    "dog_begging",
+    "dog_fighting",
+    "dog_hungry",
+    "dog_mating_call",
+    "dog_warning"
+  ],
+  "feature_dim": 359
+}
